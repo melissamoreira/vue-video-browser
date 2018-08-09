@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <search-bar></search-bar>
+    <search-bar @termChange="onTermChange"></search-bar>
   </div>
 </template>
 
@@ -11,12 +11,14 @@ export default {
   name: 'app',
   components: {
     SearchBar
+  },
+  methods: {
+    onTermChange (searchTerm) {
+      console.log(searchTerm);
+    }
   }
 }
 </script>
 
 <style lang="stylus">
-
-#app
-  font-family 'Avenir', Helvetica, Arial  
 </style>
