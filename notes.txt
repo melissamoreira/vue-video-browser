@@ -1,0 +1,9 @@
+
+
+Communicating from a child component to a parent one
+
+---
+
+Communicate from parent to child by passing props
+
+Communicate from child to parent by emitting events 
