@@ -1,9 +1,2 @@
 
-
-Communicating from a child component to a parent one
-
----
-
-Communicate from parent to child by passing props
-
-Communicate from child to parent by emitting events 
+Axios -> (Library) Makes AJAX requests to the API
