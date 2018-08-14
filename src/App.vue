@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <search-bar @termChange="onTermChange"></search-bar>
-    <video-list></video-list>
+    <video-list :videos="videos"></video-list>
+      <!-- v-bind Directive: Passes props from parent to child components -->
   </div>
 </template>
 
@@ -18,6 +19,9 @@ export default {
     SearchBar,
     VideoList
   },
+  data() {
+    return { videos: [] };
+  },
   methods: {
     onTermChange (searchTerm) { 
       
@@ -29,7 +33,10 @@ export default {
           q: searchTerm
             //q = query
         }
-      }).then(response => console.log(response));
+      }).then(response => {
+        this.videos = response.data.items;
+                            //'data' propety of the response!
+      });
 
     }
   }
