@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="container">
     <search-bar @termChange="onTermChange"></search-bar>
     <video-list :videos="videos"></video-list>
       <!-- v-bind Directive: Passes props from parent to child components -->
