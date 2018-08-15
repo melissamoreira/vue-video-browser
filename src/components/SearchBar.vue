@@ -16,4 +16,10 @@ export default {
 </script> 
 
 <style lang="stylus" scoped>
+input
+  width 75%
+
+.searchbar
+  margin 20px
+  text-align center
 </style>
