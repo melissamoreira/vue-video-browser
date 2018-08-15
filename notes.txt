@@ -1,2 +1,6 @@
+v-for="video in videos"
+:video="video"
+    //'video' in v-for and in v-bind:video are equivalent to the same element.
 
-Axios -> (Library) Makes AJAX requests to the API
+:key="video.etag"
+    //:key is the loop index. It isn't required, but enhances performance.
