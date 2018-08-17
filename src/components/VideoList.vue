@@ -4,6 +4,7 @@
             v-for="video in videos"
             :video="video"  
             :key="video.etag"
+            @videoSelect="onVideoSelect"
         ></video-list-item>
 
     </ul>    
@@ -17,7 +18,15 @@ export default {
     components: {
         VideoListItem
     },
-    props: ['videos']
+    props: ['videos'],
+    methods: {
+
+        //The 'onVideoSelect' method inside VideoList component receives a param 'video', that is the video passed by VideoListItem. That's why it hasn't the 'this' keyword.
+        
+        onVideoSelect(video) {
+            this.$emit('videoSelect', video);
+        }
+    }
 }
 </script>
 
