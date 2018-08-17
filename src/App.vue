@@ -1,8 +1,13 @@
 <template>
   <div id="app" class="container">
     <search-bar @termChange="onTermChange"></search-bar>
-    <video-list :videos="videos"></video-list>
-      <!-- v-bind Directive: Passes props from parent to child components -->
+
+    <video-details :video="selectedVideo" />
+    
+    <video-list 
+      @videoSelect="onVideoSelect"
+      :videos="videos"
+      ></video-list>
   </div>
 </template>
 
@@ -10,6 +15,7 @@
 import axios from 'axios';
 import SearchBar from './components/SearchBar';
 import VideoList from './components/VideoList';
+import VideoDetails from './components/VideoDetails';
 
 const API_KEY = 'AIzaSyCqolOXu_qCfi_5q5LXfe5HF9wBpQ2hg2g';
 
@@ -17,12 +23,19 @@ export default {
   name: 'app',
   components: {
     SearchBar,
-    VideoList
+    VideoList,
+    VideoDetails
   },
   data() {
-    return { videos: [] };
+    return { videos: [], selectedVideo: null };
   },
   methods: {
+    
+    //Passing the video received by the inner components to our selectedVideo data prop
+    onVideoSelect(video) {
+      this.selectedVideo = video;
+    },
+
     onTermChange (searchTerm) { 
       
       axios.get('https://www.googleapis.com/youtube/v3/search', {
@@ -35,7 +48,6 @@ export default {
         }
       }).then(response => {
         this.videos = response.data.items;
-                            //'data' propety of the response!
       });
 
     }

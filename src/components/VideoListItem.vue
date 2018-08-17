@@ -1,7 +1,9 @@
 <template>
-    <li class="media">
+    <li class="list-group-item media"
+        @click="onVideoSelect">
+    
+        <!-- Call the method onVideoSelect at the click event -->
 
-        <!-- Passing just the function that returns the thumb in the src attr -->
         <img :src="thumbnailUrl" alt="" class="mr-3">
 
         <div class="media-body">
@@ -18,7 +20,12 @@ export default {
     computed: {
         thumbnailUrl() {
             return this.video.snippet.thumbnails.default.url;
-                //When referencing a prop inside a function, use 'this'
+        }
+    },
+    methods: {
+        onVideoSelect() {
+            this.$emit('videoSelect', this.video);
+                //First param is the event, second is the prop
         }
     }
 }
