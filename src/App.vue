@@ -1,13 +1,14 @@
 <template>
   <div id="app" class="container">
     <search-bar @termChange="onTermChange"></search-bar>
-
-    <video-details :video="selectedVideo" />
-    
-    <video-list 
-      @videoSelect="onVideoSelect"
-      :videos="videos"
-      ></video-list>
+    <div class="row">
+      <video-details :video="selectedVideo" />
+      
+      <video-list 
+        @videoSelect="onVideoSelect"
+        :videos="videos"
+        ></video-list>
+    </div>
   </div>
 </template>
 
